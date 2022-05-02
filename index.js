@@ -2,7 +2,8 @@ const express = require("express")
 const app = express()
 const bodyParser = require("body-parser")
 const data = require("./component/data")
-const port = 3000
+const dotenv = require('dotenv');
+dotenv.config();
 app.use(express.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
@@ -17,6 +18,6 @@ app.get("/404", (req, res) => {
 
 app.use("/user", require("./router/user"))
 app.use("/event", require("./router/event"))
-app.listen(port, () => {
-    console.log(`server started at port ${port}`)
+app.listen(process.env.PORT, () => {
+    console.log(`server started at port ${process.env.PORT}`)
 })
