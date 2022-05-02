@@ -1,0 +1,57 @@
+<%- include ("partials/header.ejs") %>
+
+    <h3 class="text-center mt-4">Dashboard</h3>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3">
+                <!-- left panel -->
+                <div class="row m-3"><a href="view_dashboard" class="btn btn-primary">View All Event</a></div>
+                <div class="row m-3"><a href="add_event" class="btn btn-primary">Add New Event</a></div>
+                <div class="row m-3"><a href="#" class="btn btn-primary">Edit Event</a></div>
+                <div class="row m-3"><a href="#" class="btn btn-primary">Delete Event</a></div>
+            </div>
+            <div class="col-sm-6 m-4">
+
+
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Event Name</th>
+                            <th>Start Time</th>
+                            <th>End Time</th>
+                            <th>Description</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    <% for(var i=0; i<data.length; i++) { %>
+
+                        <tr>
+                            <td>
+                                <%= data[i].eventname %>
+                            </td>
+                            <td>
+                                <%= data[i].starttime %>
+                            </td>
+                            <td>
+                                <%= data[i].endtime %>
+                            </td>
+                            <td>
+                                <%= data[i].description %>
+                            </td>
+                            <td>
+                                <a href="../event/edit/<%= data[i].eventid %>">Modify</a>
+
+                            </td>
+
+                        </tr>
+
+                        <% } %>
+
+                </table>
+
+
+            </div>
+
+        </div>
+
+        <%- include ("partials/footer.ejs") %>

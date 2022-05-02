@@ -1,0 +1,43 @@
+<%- include ("partials/header.ejs") %>
+
+    <h3 class="text-center mt-4">Edit Your Event</h3>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3">
+                <!-- left panel -->
+                <div class="row m-3"><a href="view_dashboard" class="btn btn-primary">View All Event</a></div>
+                <div class="row m-3"><a href="add_event" class="btn btn-primary">Add New Event</a></div>
+                <div class="row m-3"><a href="#" class="btn btn-primary">Edit Event</a></div>
+                <div class="row m-3"><a href="#" class="btn btn-primary">Delete Event</a></div>
+            </div>
+            <div class="col-sm-6 m-4">
+                <form action="../update/<%= event[0].eventid %>" method="post">
+                    <div class="form-group mb-3">
+                        <label for="exampleInputMeetingName">Meeting Name</label>
+                        <input type="text" name="name" class="form-control" id="exampleInputMeetingName"
+                            aria-describedby="emailHelp" placeholder="Enter Meeting Name"
+                            value="<%= event[0].eventname %>">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="exampleInputStartTime">Start Time</label>
+                        <input type="text" name="start" class="form-control" id="exampleInputStartTime"
+                            placeholder="Start Time" value="<%= event[0].starttime %>">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="exampleInputEndTime">End Time</label>
+                        <input type="text" name="end" class="form-control" id="exampleInputEndTime"
+                            placeholder="End Time" value="<%= event[0].endtime %>">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="exampleInputDescription">Description</label>
+                        <input type="text" name="desc" class="form-control" id="exampleInputDescription"
+                            placeholder="End Time" value="<%= event[0].description %>">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <%- include ("partials/footer.ejs") %>
